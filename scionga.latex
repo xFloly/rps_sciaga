@@ -75,9 +75,15 @@
     \nn
     Rozkład wykładniczy: $f(x) = \lambda e^{-\lambda x}$, $F(x)= 1-e^{-\lambda x}$, $m = \frac{1}{\lambda}$, $\sigma = \frac{1}{\lambda^2}$
     \nn
+    Rozkład normalny:$ \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{{x-m}^2}{2\sigma^2}}$  
+    \nn
+    Dla X bedącego zmienną losową o rozkładzie normalnym $N(m,\sigma)$ i $Y = aX + b$, gdzie $a \neq 0$ Y ma rozkład normalny $N(am+b, |a|\sigma)$
+    \\
     Dystrybuanta zmiennej losowej: $F(x) = F_X(x) = P_X((-\infty, x]) = P(X \in (-\infty, x])$. \\
+    Pochodna dystrybuanty to funkcja rozkładu: $F'(x) = f(x)$\\
     Dystrybuanta jest niemalejąca, $\lim_{x \rightarrow -\infty}F(x) = 0$, $\lim_{x \rightarrow \infty}F(x) = 1$. \\
     Dla rozkładu dyskretnego: $F(x) = \sum_{i:x_i \le x}p_i$
+    
 
     \section{Centralne twierdzenie graniczne}
 	
@@ -86,7 +92,7 @@
     tw. Lindeberga-Levy'ego: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty } P( Z_{n} \ \leqslant x) =\Phi ( x)$ \\
     Centralne twierdzenie graniczne dla sum: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty }( F_{S_{n}}( x) \ -\ \Phi _{nm,\sigma \sqrt{n}}( x)) =0$ \\
     Centralne twierdzenie graniczne dla średnich: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty }( F_{\frac{S_{n}}{n}}( x) \ -\ \Phi _{m,\frac{\sigma }{\sqrt{n}}}( x)) =0$ \\
-    tw. de Moivre’a-Laplace’a (gdy $X_{i}$ to ciąg niezależnych prób Bernoullego z tym samym $p$): $\forall x\in \Re $ $P\left(\frac{S_{n} -np}{\sqrt{npq}} \leqslant x\right) \rightarrow \Phi ( x)$
+    tw. de Moivre’a-Laplace’a (gdy $X_{i}$ to ciąg niezależnych prób Bernoullego z tym samym $p$): $\forall x\in \mathbb{R} $ $P\left(\frac{S_{n} -np}{\sqrt{npq}} \leqslant x\right) \rightarrow \Phi ( x)$
 
     \section{Przedziały ufności Estymacja Przedziałowa}
     
