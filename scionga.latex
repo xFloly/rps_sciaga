@@ -1,0 +1,147 @@
+\documentclass{article}
+
+\title{Egzamin RPS - ściąga}
+\author{sieci komputerowe}
+
+\usepackage{amsmath, amscd, amsthm, amssymb, mathrsfs, amsfonts}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{polski}
+\usepackage{gensymb}
+\usepackage{tabu}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[fontsize=8pt]{fontsize}
+\usepackage[compact]{titlesec}
+
+\usetikzlibrary{quotes,angles}
+
+\newcommand{\ub}[1]{\underline{\textbf{#1}}}
+\newcommand{\lmi}[2][\infty]{\displaystyle{\lim_{#2 \to #1}}}
+\newcommand{\nn}{\noindent\newline}
+
+\begin{document}
+    \noindent
+    \section{Prawdopodobieństwo całkowite i warunkowe}
+    Prawdopodobieństwo całkowite. Niech będzie dana przestrzeń probabilistyczna $(\Omega, \Sigma, P)$ oraz zdarzenia $A_1, A_2, A_n \in \Sigma$ spełniająca warunki: 
+        $P(A_i) > 0$ dla każdego $i = 1,...,n$;
+        $A_i \cap A_j \neq \emptyset$ dla wszystkich $i \neq j$;
+        $A_1 \cup ... A_n = \Omega$
+        \nn
+    Prawdopodobieństwo warunkowe: $P(B|A) = \frac{P(B \cap A)}{P(A)}$
+    \nn
+    Wtedy dla każdego zdarzenia $B \in \Sigma$ zachodzi następująca równość: $P(B) = \Sigma_{i=1}^n P(B|A_i)P(A_i)$
+    \nn
+    Wzór Bayesa: $P(A_k|B) = \frac{P(B|A_k)P(A_k)}{\Sigma_{i=1}^n P(B|A_i)P(A_i)}$
+    \nn
+    Niezależność zdarzeń: $P(A \cap B) = P(A)\cdot P(B)$, $P(A_{k_1} \cap ... \cap A_{k_r}) = P(A_{k_1}) \cdot ... \cdot P(A_{k_r})$
+    \section{Wartość oczekiwana i wariancja}
+    Wartość oczekiwana dla rozkładu dyskretnego: $m = E(X) = \Sigma_{i=1}^n x_i p_i$, ciągłego: $m = E(X) = \int^{\infty}_{-\infty}x f(x) dx$
+    \nn
+    Wariancja: $\sigma^2 = D^2(X) = E((X-m)^2)$, odchylenie standardowe: $\sigma = \sqrt{\sigma^2} = \sqrt{D^2(X)}$
+    \nn
+    Wariancja dla rozkładu dyskretnego: $D^2(X) = \Sigma_{i=1}^n (x_i-m)^2 p_i$, dla rozkładu ciągłego: $D^2(X) = \int_{-\infty}^{\infty} (x-m)^2 f(x) dx$
+    \nn
+    Zmienne niezależne gdy dla dowolnych zdarzeń $B_1,...,B_k \in \Sigma$: $P(X_1 \in B_1, ..., X_k \in B_k) = P(X_1 \in B_1) \cdot ... \cdot P(X_k \in B_k)$
+    \nn
+    Wartości własności i wariancji: \nn
+    jeżeli $X = const = c$, to $E(X) = c$;\quad 
+    $E(aX) = aE(X) \forall a \in \mathbb{R}$;\quad
+    $E(X+Y) + E(X)+E(Y)$;\quad
+    $D^2(X) + E(X^2)-E(X)^2$;\quad
+    $D^2(aX) = a^2D^2(X) \forall a \in \mathbb{R}$;\quad
+    $X = const = c$ to $D^2(X) = 0$; 
+    \nn
+    jeżeli X i Y są niezależnymi zmiennymi losowymi, to $D^2(X+Y)=D^2(X)+D^2(Y)$
+
+    \section{Rozkłady}
+    Rozkład Bernouliego: ${n\choose{k}} p^k (1-p)^{n-k}$, $m = np$, $\sigma^2 = np(1-p)$
+    \nn
+    Jeżeli $X \sim B(n,p)$ i $Y \sim B(m,p)$ są dwiema niezależnymi zmiennymi losowymi o rozkładzie dwumianowym, wtedy ich suma $X+Y$ jest zmienną losową o rozkładzie dwumianowym $B(n+m, p)$
+    \nn
+    Rozkład Poissona($m \geq 100 \land p \leq \frac{1}{10}$) : $f(x)= \frac{e^{-\lambda} \lambda^k}{k!}$, $\lambda = np$, $m = \lambda$, $\sigma = \lambda$\
+    \nn
+    Dla dwóch zmiennych losowych o rozkładzie Poissona z parametrami $\lambda$ i $\mu$ suma tych zmiennych losowych ma rozkład Possiona o parametrze $\lambda+\mu$
+    \nn
+    Rozkład geometryczny: $p^k (1-p)^{n-k}$, $m = \frac{1}{p}$, $\sigma = \frac{1-p}{p^2}$
+    \nn
+    Rozkład jednostajny: $f(x) = \frac{1}{b-a}$ gdy $x \in [a,b]$, 0 gdy $x \notin [a,b]$, $ F(x)=$ 0 gdy $x < a$ $ \frac{x-a}{b-a}$ gdy $x \in [a,b]$ 1 gdy $x > b$, $m = \frac{a+b}{2}$, $\sigma = \frac{(b-a)^2}{12} $
+    \nn
+    Rozkład wykładniczy: $f(x) = \lambda e^{-\lambda x}$, $F(x)= 1-e^{-\lambda x}$, $m = \frac{1}{\lambda}$, $\sigma = \frac{1}{\lambda^2}$
+    \nn
+    Dystrybuanta zmiennej losowej: $F(x) = F_X(x) = P_X((-\infty, x]) = P(X \in (-\infty, x])$. \\
+    Dystrybuanta jest niemalejąca, $\lim_{x \rightarrow -\infty}F(x) = 0$, $\lim_{x \rightarrow \infty}F(x) = 1$. \\
+    Dla rozkładu dyskretnego: $F(x) = \sum_{i:x_i \le x}p_i$
+
+    \section{Centralne twierdzenie graniczne}
+	
+    Dla $S_{n}= X_{1} + ... + X_{n}$, gdzie $X_{i}$ to niezależne zmienne losowe z tym samym rozkładem, nadzieją $m$ i wariancją $\sigma^{2}$, $\sigma>0$:\\ 
+    $Z_{n} =\frac{S_{n} -E( S_{n})}{\sqrt{D^{2}( S_{n})}} =\frac{S_{n} -nm}{\sigma \sqrt{n}}$ - $Z_{n}$ to standaryzacja sumy $S_{n}$, $E(Z_{n})=0$, $D^{2}(Z_{n})=1$ \\
+    tw. Lindeberga-Levy'ego: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty } P( Z_{n} \ \leqslant x) =\Phi ( x)$ \\
+    Centralne twierdzenie graniczne dla sum: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty }( F_{S_{n}}( x) \ -\ \Phi _{nm,\sigma \sqrt{n}}( x)) =0$ \\
+    Centralne twierdzenie graniczne dla średnich: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty }( F_{\frac{S_{n}}{n}}( x) \ -\ \Phi _{m,\frac{\sigma }{\sqrt{n}}}( x)) =0$ \\
+    tw. de Moivre’a-Laplace’a (gdy $X_{i}$ to ciąg niezależnych prób Bernoullego z tym samym $p$): $\forall x\in \Re $ $P\left(\frac{S_{n} -np}{\sqrt{npq}} \leqslant x\right) \rightarrow \Phi ( x)$
+
+    \section{Przedziały ufności Estymacja Przedziałowa}
+    
+    Dla wartości oczekiwanej w rozkładzie normalnym ze znanym odchyleniem standardowym (na poziomie ufności $1-\alpha$): \nn
+    $(\bar{X} - \frac{\sigma}{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}), \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1 - \frac{\alpha}{2}))$, 
+    $(\infty, \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha))$,
+    $(\bar{X} - \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha), \infty)$
+
+    \noindent
+    Dla wartości oczekiwanej w rozkładzie normalnym z nieznanym odchyleniem standardowym: \nn
+    $(\bar{X} - \frac{S}{\sqrt{n-1}} F^{-1}_{t_{n-1}}(1-\frac{\alpha}{2}), \bar{X} + \frac{S}{\sqrt{n-1}} F^{-1}_{t_{n-1}}(1-\frac{\alpha}{2}))$,
+    $(-\infty, \bar{X} + \frac{S}{\sqrt{n-1}} F^{-1}_{t_{n-1}}(1-\alpha))$,
+    $(\bar{X} - \frac{S}{\sqrt{n-1}} F^{-1}_{t_{n-1}}(1-\alpha), \infty)$,
+
+    \noindent
+    Dla frakcji. Próbka prosta $X_1, ..., X_n$ pochodzi z rozkładu dwupunktowego $B(1,p)$. W przypadku. Dla próbki dużej $(n > 30)$: \nn
+    $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}), 
+    \hat{p} + \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}))$ ,
+    $(0, \hat{p} + \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha)$ ,
+    $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha), 1)$
+
+    \noindent
+    Dla wariancji w rozkładzie normalnym z nieznaną wartością oczekiwaną: 
+    $( \frac{nS^2}{ F^{-1}_{\chi^2_{n-1}} (1-\frac{\alpha}{2}) }, \frac{nS^2}{F^{-1}_{\chi^2_{n-1}} (\frac{\alpha}{2})})$,
+    $(0, \frac{nS^2}{F^{-1}_{\chi^2_{n-1}} (\alpha)})$, 
+    $(\frac{nS^2}{F^{-1}_{\chi^2_{n-1}} (1-\alpha)}, \infty)$ 
+
+    \noindent
+    Przedziały ufności dla wartości oczekiwanej - uwagi. Jeżeli rodzina rozkładów nie jest znana oraz próbka jest duża $(n \ge 30)$, to konstruując przedziały ufności dla wartości oczekiwanej m możemy rozważyć zmienną losową $Z = \frac{\bar{X} - m}{S}\sqrt{n} \approx N(0,1)$ \\
+    Jeżeli natomiast próbka jest mała $(n < 30)$ oraz pochodzi z rozkładu $B(1,p)$ to konstruując przedział ufności dla p możemy rozważyć zmienną losową $K = \#\{i : X_i = 1\} \sim B(n,p)$ 
+
+    \section{Wektor losowy}
+    Wektor losowy: funkcja $X: \Omega \rightarrow \mathbb{R}^{n}$ ($Y: \Omega \rightarrow \mathbb{R}^{m}$) na przestrzeni $(\Omega,\Sigma,P)$, rozkład wektora losowego $X$: $P_{X}(B) = P(X^{-1}(B)$ dla $B \subset \mathbb{R}^{n}$. Dla $A_{1} \subset \mathbb{R}^{n} A_{2} \subset \mathbb{R}^{m}$: $P_{X}(A_{1}) = P_{(X,Y)}(A_{1} \times \mathbb{R}^{m})$ i $P_{Y}(A_{2}) = P_{(X,Y)}(\mathbb{R}^{n} \times A_{2})$ są rozkładami brzegowymi, a $P_{(X,Y)}$ to rozkład łączny.\\
+    Niezależność wektorów losowych o rozkładach ciągłych $f_{(X,Y)}(x,y) = f_{X}(x) f_{Y}(y)$ \\
+    dla $x \in \mathbb{R}^{n}, y \in \mathbb{R}^{m}, P_{X}(x)>0, P_{Y}(y)>0, f_{X}(x)>0, f_{Y}(y)>0$ \\
+    Rozkłady warunkowe wektora losowego (dyskretny):  $P_{X|Y=y}(B) = P(X \in B | Y = y) = \frac{P(X \in B, Y = y)}{P(Y = y)}$ dla $B \subset \mathbb{R}^{n}$ \\
+    Rozkłady warunkowe wektora losowego (ciągłego):  $f_{Y|X=x}(y) = \frac{f_{(X,Y)}(x,y)}{f_{X}(x)}$ dla $y \in \mathbb{R}^{m}$ \\
+    Warunkowa wartość oczekiwana: $E(X|Y=y)$
+    
+    \section{Regresja Liniowa}
+    Model regresji liniowej: $Y_{i}=\alpha + \beta x_{i} + U_{i}$ dla $i=1,..,n$, \\
+    Wyznaczenie estymatorów $\alpha$ i $\beta$ MNK: wyznaczamy arg min $S(\alpha,\beta)$ dla$S(\alpha,\beta)$= $\Sigma_{i=1}^n (y_{i}-\alpha - \beta x_{i})^{2}$, \nn otrzymujemy $\hat{\alpha} = \bar{y}-\hat{\beta \bar{x}}$
+    $\hat{\beta}=\frac{n\Sigma_{i=1}^n x_{i} y_{i} - (\Sigma_{i=1}^n x_{i})(\Sigma_{i=1}^n y_{i})}{n \Sigma_{i=1}^n x_{i}^2 - (\Sigma_{i=1}^n x_{i})^2}$ $\hat{\alpha}$ i $\hat{\beta}$ są nieobciążone.\\
+    Wyznaczenie estymatorów metodą największej wiarygodności dla błędów normalnych: \\
+    Zał: $U_i \sim N(0,\sigma)$, czyli $Y \sim N(\alpha+\beta x_{i},\sigma)$\\ $L(\alpha,\beta,\sigma^2)=f_1(y_1)\cdot\cdot\cdot f_n(y_n)$, gdzie $f_i(y)=\frac{1}{\sqrt{2 \pi \sigma^2}}e^{\frac{-(y- \alpha - \beta x_{i})^2}{(2 \sigma^2)}}$ dostajemy te same estymatory jak w MNK oraz $\hat{\sigma^2}=\frac{1}{n}
+    \Sigma_{i=1}^n (y_i-\hat{\alpha}-\hat{\beta} x_i)^2$ a także $E(\hat{\sigma^2})=\frac{n-2}{n}{\sigma}^2$
+    
+    \section{Analiza wariancji (ANOVA)}
+    Rozkład F(-Snedecora): \\
+    Niech $X$ i $Y$ będą niezależnymi zmiennymi losowymi o rozkładach $\chi_p^2$ i $\chi_q^2$.\\
+    Zatem $F=\frac{X/p}{Y/q}$ posiada rozkład F-Snedecora o $(p,q)$ stopniach swobody, jeżeli T jest zmienną losową o rozkładzie $t_q$, to $T^2 \sim F_{1,q}$, $E(F)=\frac{q}{q-2}$ oraz $D^2(F)=\frac{2 q^2 (p+q-2)}{p (q-2)^2 (q-4)}$ dla $q>4$\\
+    Jednoczynnikowa analiza wariancji: \\
+    Mając $k$ niezależnych próbek prostych: $X_{11},.,X_{1n_1}, X_{21},.,X_{2n_2},...,X_{k1},.,X_{kn_k}$ które pochodzą z $N(m_1,\sigma),..,N(m_k,\sigma)$ testujemy hipotezę: $H_0: m_1=m_2=..=m_k$
+    wobec $H_1:$ nie wszystkie wartości $m_i$ są sobie równe. Do weryfikacji $H_0$ służy $f=\frac{MSTR}{MSE}$, $MSTR=\frac{1}{k-1}\Sigma_{i=1}^k n_i(\bar{x_i}-\bar{x})^2$, $MSE=\frac{1}{n-k}\Sigma_{i=1}^k n_i s_i^2$\\
+    $n=\Sigma_{i=1}^k n_i$, $\bar{x_i}$ jest średnią arytmetyczną z i-tej próbki, $s_i^2$ jest wariancją z i-tej próbki, $\bar{x}$ jest średnią arytmetyczną ze wszystkich obserwacji, która daje $F=F(X_{11},..,X_{kn_k})$ o rozkładzie F-Snedecora o $(k-1,n-k)$ stopniach swobody.\\
+    \newpage
+
+\end{document}
