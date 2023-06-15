@@ -100,6 +100,11 @@
     Niech $X_1, ..., X_n$ będzie próbką prostą ze zmiennej losowej X. Estymatorem parametru $\theta$ rozkładu $P_\theta \in \mathbb{P}$ "odpowiednio bliskiego" rozkładowi $P_X$ nazywamy zmienną losową $\hat{\theta} \circ (X_1, ..., X_n) = T(X_1, ..., X_n)$ gdzie T jest odpowiednio dobraną funkcją, która "rozsądnie" przybliża (estymuje) wartość $\theta$.
     Przykładami estymatorów są: średnia arytmetyczna z próbki - $\bar{X} = \frac{X_1 + ... + X_n}{n}$ - estymator wartości oczekiwanej $E(X)$. \\ Mediana z próbki - $me X_{(\lceil n/2 \rceil)}$ - estymator mediany. Wariancja z próbki - $S^2 = \frac{1}{n}\sum^n_{n=1}(X_1 - m)^2$ (jeżeli $E(X)=m$ jest znane), \\ lub $S^2 = \frac{1}{n} = \sum^n_{i=1}(X_i-X)^2$ (jeżeli $E(X)=m$ nie jest znane) - estymator wariancji $D^2(X)$ \\
     Estymator nieobciążony - $E(\hat{\theta}) = \theta$. \\ Estymator zgodny - $P(\omega \in \Omega : \lim_{n \rightarrow \infty} \hat{\theta}_n(\omega) = \theta) = 1$
+     \nn
+    Metoda MLE: dla zmiennych losowych $X_1, ..., X_n$ \nn
+    $L(\theta) = \Pi_{i = 1}^{n} P(X_i = x_i)$ - dla zmiennych dyskretnych \nn
+    $L(\theta) = \Pi_{i = 1}^{n} f(x_i)$ - dla zmiennych ciągłych \nn
+    Żeby wyznaczyć MLE $(\theta)$ należy wyznaczyć maximum funkcji wiarygodności$L(\theta)$
 
     \section{Przedziały ufności Estymacja Przedziałowa}
     
