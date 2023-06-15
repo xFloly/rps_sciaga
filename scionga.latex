@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \title{Egzamin RPS - ściąga}
-\author{sieci komputerowe}
+\author{FS,FS,KS,PM,SM}
 
 \usepackage{amsmath, amscd, amsthm, amssymb, mathrsfs, amsfonts}
 \usepackage[margin=0.5in]{geometry}
@@ -77,6 +77,8 @@
     \nn
     Rozkład normalny:$ \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{{x-m}^2}{2\sigma^2}}$  
     \nn
+    Własności $\Phi(x)$: $\Phi(x) = 1 - \Phi(-x)$, $\Phi^-1(\alpha) = -\Phi^-1(1-\alpha)$
+    \nn
     Dla X bedącego zmienną losową o rozkładzie normalnym $N(m,\sigma)$ i $Y = aX + b$, gdzie $a \neq 0$ Y ma rozkład normalny $N(am+b, |a|\sigma)$
     \\
     Dystrybuanta zmiennej losowej: $F(x) = F_X(x) = P_X((-\infty, x]) = P(X \in (-\infty, x])$. \\
@@ -93,6 +95,11 @@
     Centralne twierdzenie graniczne dla sum: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty }( F_{S_{n}}( x) \ -\ \Phi _{nm,\sigma \sqrt{n}}( x)) =0$ \\
     Centralne twierdzenie graniczne dla średnich: $\forall x\in \mathbb{R} $ $\lim _{n\rightarrow \infty }( F_{\frac{S_{n}}{n}}( x) \ -\ \Phi _{m,\frac{\sigma }{\sqrt{n}}}( x)) =0$ \\
     tw. de Moivre’a-Laplace’a (gdy $X_{i}$ to ciąg niezależnych prób Bernoullego z tym samym $p$): $\forall x\in \mathbb{R} $ $P\left(\frac{S_{n} -np}{\sqrt{npq}} \leqslant x\right) \rightarrow \Phi ( x)$
+    
+    \section{Estymacja punktowa}
+    Niech $X_1, ..., X_n$ będzie próbką prostą ze zmiennej losowej X. Estymatorem parametru $\theta$ rozkładu $P_\theta \in \mathbb{P}$ "odpowiednio bliskiego" rozkładowi $P_X$ nazywamy zmienną losową $\hat{\theta} \circ (X_1, ..., X_n) = T(X_1, ..., X_n)$ gdzie T jest odpowiednio dobraną funkcją, która "rozsądnie" przybliża (estymuje) wartość $\theta$.
+    Przykładami estymatorów są: średnia arytmetyczna z próbki - $\bar{X} = \frac{X_1 + ... + X_n}{n}$ - estymator wartości oczekiwanej $E(X)$. \\ Mediana z próbki - $me X_{(\lceil n/2 \rceil)}$ - estymator mediany. Wariancja z próbki - $S^2 = \frac{1}{n}\sum^n_{n=1}(X_1 - m)^2$ (jeżeli $E(X)=m$ jest znane), \\ lub $S^2 = \frac{1}{n} = \sum^n_{i=1}(X_i-X)^2$ (jeżeli $E(X)=m$ nie jest znane) - estymator wariancji $D^2(X)$ \\
+    Estymator nieobciążony - $E(\hat{\theta}) = \theta$. \\ Estymator zgodny - $P(\omega \in \Omega : \lim_{n \rightarrow \infty} \hat{\theta}_n(\omega) = \theta) = 1$
 
     \section{Przedziały ufności Estymacja Przedziałowa}
     
@@ -123,6 +130,24 @@
     \noindent
     Przedziały ufności dla wartości oczekiwanej - uwagi. Jeżeli rodzina rozkładów nie jest znana oraz próbka jest duża $(n \ge 30)$, to konstruując przedziały ufności dla wartości oczekiwanej m możemy rozważyć zmienną losową $Z = \frac{\bar{X} - m}{S}\sqrt{n} \approx N(0,1)$ \\
     Jeżeli natomiast próbka jest mała $(n < 30)$ oraz pochodzi z rozkładu $B(1,p)$ to konstruując przedział ufności dla p możemy rozważyć zmienną losową $K = \#\{i : X_i = 1\} \sim B(n,p)$ 
+    
+    \section{Testowanie hipotez statystycznych}
+    Próbka $X_{1},...,X_{n}$ z rozkładu $N(m,\sigma)$, stat. testowe dają zm. los. przy prawdziwości hipotez zerowych.\\ 
+    Testowanie hipotez $H_{0}: m=m_{0}$ o wart. oczekiwanej w rozkładzie norm.: \\ gdy $\sigma$ znana $z=z(x_{1},...,x_{n})=\frac{\bar{x}-m_{0}}{\sigma}\sqrt{n}$ dająca zm. los. $Z=z(X_{1},...,X_{n})$ o rozkładzie $N(0,1)$, \\ gdy $\sigma$ nieznana $t=t(x_{1},...,x_{n})=\frac{\bar{x}-m_{0}}{s}\sqrt{n-1}$ dająca zm. los. $T=t(X_{1},...,X_{n})$ o rozkładzie t-studenta o $n-1$ st. swobody. \\
+    Testowanie hipotez $H_{0}: \sigma^{2} = \sigma_{0}^{2}$ o wariancji w rozkładzie norm.: \\ $\chi=\chi(x_{1},...,x_{n})=\frac{ns^{2}}{\sigma_{0}^{2}}$ dająca zm. los. $\chi=\chi(X_{1},...,X_{n})$ o rozkładzie $\chi$ a o $n-1$ st. swobody. \\
+    Testowanie hipotez $H_{0}: p=p_{0}$ o frakcji, \\ gdy $X_{1},...,X_{n}$ z rozkładu $B(1,p)$: dla próbki $n\geqslant30$ używamy stat. testowej $z=z(x_{1},...,x_{n})=\frac{\hat{p}-p_{0}}{\sqrt{\hat{p}(1-\hat{p})}})$ dająca zm. los. $Z=z(X_{1},...,X_{n})$ o rozkładzie $N(0,1)$, \\ dla małej próbki stat. testowa $k=k(x_{1},...,x_{n}=\#\{i:x_{i}=1\}$ dająca zm. los. $K=k(X_{1},...,X_{n})$ o rozkładzie $B(n,p_{0})$.\\
+    Test t-Studenta: próbki z rozkł. $N(m_{1},\sigma_{1})$ i $N(m_{2},\sigma_{2})$,  $H_{0}: m_{1}=m_{2}$, \\ dla znanych $\sigma_{1}$,$\sigma_{2}$:  $z=z(x_{1},...,x_{n_{1}},y_{1},...,y_{n_{2}})=\frac{\hat{x}-\hat{y}}{\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}})$ dająca zm. los. $Z$ o rozkł. $N(0,1)$, \\ dla nieznanych $\sigma_{1}$,$\sigma_{2}$: $t=t(x_{1},...,x_{n_{1}},y_{1},...,y_{n_{2}})=\frac{\hat{x}-\hat{y}}{\sqrt{\frac{n_{1}s_{1}^{2}+n_{2}s_{2}^{2}}{n_{1}+n_{2}-2}\cdot\frac{n_{1}+n_{2}}{n_{1}n_{2}}}})$ dająca zm. los. $T$ o rozkładzie t-studenta o $n_{1}+n_{2}-2$ st. swobody. 
+    Test$\chi^2$ zgodnosci: dla rozkładów dyskretnych: $H_0 : P_X = P$ \\
+    $P(y_1) = \pi_1 > 0$, ..., $P(y_k) = \pi_k > 0$, $\pi_1 +$, ... ,$+ \pi_k = 1$, $n_i$ - liczba wystąpień $y_i$ w ciągu $x1,...,x_n$ \\
+    $\chi = \chi(x_1, ..., x_n) = \sum_{i=1}^{k} \frac{(n_i-n\pi_i)^2}{n\pi_i}$, zbiór krytyczny K to $[l,\inf)$, gdzie l to kwantyl rzędu $1-\alpha$ rozkładu $\chi^2$ o $k-1$ stopniach swobody. \\
+    Test niezależności rozkładów: dla zmiennych losowych: $X \sim P_X$ i $Y \sim P_Y$ \\
+    $\chi = \chi((x_1,y_1), ..., (x_n,y_n)) = \sum_{(s,t)\in S \times T} \frac{(n_{s,t}-\frac{n_s n_t}{n})^2}{\frac{n_s n_t}{n}}$, gdzie $ S \times T$ jest nośnikiem próbki danych, \\ $n_{s,t} = \#\{i:(s,t)=(x_i,y_i)\}$, $n_s = \#\{i: s=x_i\}$, $n_t = \#\{i: t=y_i\}$ $ (n=\sum_{(s,t)}n_{s,t}) $ Można wtedy wykazać, że $\chi \approx \chi_{(\# S-1)(\# T-1)}^2$
+
+    \section{Metoda bootstrap}
+    Dla małej próbki (o wielkości $n$) i nieznanym rozkładzie losujemy z niej ze zwracaniem kolejno $B$ próbek o wielkości $n$. \\
+    Estymator bootstrapowy parametru ze znanym estymatorem $g(x_{1},...,x_{n})$ to: $\hat{g}=\hat{g}(x_{1},...,x_{n})=\frac{1}{B}\sum _{i=1}^{B} g(x^{i}_{1},...,x^{i}_{n})$, gdzie $x^{i}_{1},...,x^{i}_{n}$ to próbka wylosowana za $i$-tym razem. \\
+     Metoda percentylowa wyznaczania przedziałów ufności parametru $\theta$: losujemy 1000 próbek bootstrapowych, dla każdej obliczamy estymator $\theta$. Kwantyle odpowiednich rzędów z ciągu estymatorów dla próbek są końcami przedziału ufności.
+
 
     \section{Wektor losowy}
     Wektor losowy: funkcja $X: \Omega \rightarrow \mathbb{R}^{n}$ ($Y: \Omega \rightarrow \mathbb{R}^{m}$) na przestrzeni $(\Omega,\Sigma,P)$, rozkład wektora losowego $X$: $P_{X}(B) = P(X^{-1}(B)$ dla $B \subset \mathbb{R}^{n}$. Dla $A_{1} \subset \mathbb{R}^{n} A_{2} \subset \mathbb{R}^{m}$: $P_{X}(A_{1}) = P_{(X,Y)}(A_{1} \times \mathbb{R}^{m})$ i $P_{Y}(A_{2}) = P_{(X,Y)}(\mathbb{R}^{n} \times A_{2})$ są rozkładami brzegowymi, a $P_{(X,Y)}$ to rozkład łączny.\\
