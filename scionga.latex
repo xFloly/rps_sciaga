@@ -172,12 +172,12 @@
     \Sigma_{i=1}^n (y_i-\hat{\alpha}-\hat{\beta} x_i)^2$ a także $E(\hat{\sigma^2})=\frac{n-2}{n}{\sigma}^2$
     
     \section{Analiza wariancji (ANOVA)}
-    Rozkład F(-Snedecora): \\
+    Rozkład F(-Snedecora): 
     Niech $X$ i $Y$ będą niezależnymi zmiennymi losowymi o rozkładach $\chi_p^2$ i $\chi_q^2$.\\
-    Zatem $F=\frac{X/p}{Y/q}$ posiada rozkład F-Snedecora o $(p,q)$ stopniach swobody, jeżeli T jest zmienną losową o rozkładzie $t_q$, to $T^2 \sim F_{1,q}$, $E(F)=\frac{q}{q-2}$ oraz $D^2(F)=\frac{2 q^2 (p+q-2)}{p (q-2)^2 (q-4)}$ dla $q>4$\\
-    Jednoczynnikowa analiza wariancji: \\
+    Zatem $F=\frac{X/p}{Y/q}$ posiada rozkład F-Snedecora o $(p,q)$ stopniach swobody, jeżeli T jest zmienną losową o rozkładzie $t_q$, to $T^2 \sim F_{1,q}$, $E(F)=\frac{q}{q-2}$ oraz $D^2(F)=\frac{2 q^2 (p+q-2)}{p (q-2)^2 (q-4)}$ dla $q>4$.
+    Jednoczynnikowa analiza wariancji:
     Mając $k$ niezależnych próbek prostych: $X_{11},.,X_{1n_1}, X_{21},.,X_{2n_2},...,X_{k1},.,X_{kn_k}$ które pochodzą z $N(m_1,\sigma),..,N(m_k,\sigma)$ testujemy hipotezę: $H_0: m_1=m_2=..=m_k$
-    wobec $H_1:$ nie wszystkie wartości $m_i$ są sobie równe. Do weryfikacji $H_0$ służy $f=\frac{MSTR}{MSE}$, $MSTR=\frac{1}{k-1}\Sigma_{i=1}^k n_i(\bar{x_i}-\bar{x})^2$, $MSE=\frac{1}{n-k}\Sigma_{i=1}^k n_i s_i^2$\\
+    wobec $H_1:$ nie wszystkie wartości $m_i$ są sobie równe. Do weryfikacji $H_0$ służy $f=\frac{MSTR}{MSE}$, $MSTR=\frac{1}{k-1}\Sigma_{i=1}^k n_i(\bar{x_i}-\bar{x})^2$, $MSE=\frac{1}{n-k}\Sigma_{i=1}^k n_i s_i^2$
     $n=\Sigma_{i=1}^k n_i$, $\bar{x_i}$ jest średnią arytmetyczną z i-tej próbki, $s_i^2$ jest wariancją z i-tej próbki, $\bar{x}$ jest średnią arytmetyczną ze wszystkich obserwacji, która daje $F=F(X_{11},..,X_{kn_k})$ o rozkładzie F-Snedecora o $(k-1,n-k)$ stopniach swobody.\\
     \newpage
 
