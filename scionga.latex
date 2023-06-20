@@ -31,7 +31,7 @@
     \section{Prawdopodobieństwo całkowite i warunkowe}
     Prawdopodobieństwo całkowite. Niech będzie dana przestrzeń probabilistyczna $(\Omega, \Sigma, P)$ oraz zdarzenia $A_1, A_2, A_n \in \Sigma$ spełniająca warunki: 
         $P(A_i) > 0$ dla każdego $i = 1,...,n$;
-        $A_i \cap A_j \neq \emptyset$ dla wszystkich $i \neq j$;
+        $A_i \cap A_j = \emptyset$ dla wszystkich $i \neq j$;
         $A_1 \cup ... A_n = \Omega$
         \nn
     Prawdopodobieństwo warunkowe: $P(B|A) = \frac{P(B \cap A)}{P(A)}$
@@ -65,17 +65,19 @@
     \nn
     Jeżeli $X \sim B(n,p)$ i $Y \sim B(m,p)$ są dwiema niezależnymi zmiennymi losowymi o rozkładzie dwumianowym, wtedy ich suma $X+Y$ jest zmienną losową o rozkładzie dwumianowym $B(n+m, p)$
     \nn
-    Rozkład Poissona($m \geq 100 \land p \leq \frac{1}{10}$) : $f(x)= \frac{e^{-\lambda} \lambda^k}{k!}$, $\lambda = np$, $m = \lambda$, $\sigma = \lambda$\
+    Rozkład Poissona : $f(x)= \frac{e^{-\lambda} \lambda^k}{k!}$, $m = \lambda$, $\sigma^2 = \lambda$\
+    \nn
+    Dla $n \geq 100 \land p \leq \frac{1}{10}$ rozkład Poissona z $\lambda = np$ dobrze przybliza rozkład Bernouliego
     \nn
     Dla dwóch zmiennych losowych o rozkładzie Poissona z parametrami $\lambda$ i $\mu$ suma tych zmiennych losowych ma rozkład Possiona o parametrze $\lambda+\mu$
     \nn
-    Rozkład geometryczny: $p(1-p)^{k-1}$, $m = \frac{1}{p}$, $\sigma = \frac{1-p}{p^2}$ 
+    Rozkład geometryczny: $P(k) = p(1-p)^{k-1}$, $m = \frac{1}{p}$, $\sigma^2 = \frac{1-p}{p^2}$ 
     \nn
-    Rozkład jednostajny: $f(x) = \frac{1}{b-a}$ gdy $x \in [a,b]$, 0 gdy $x \notin [a,b]$, $ F(x)=$ 0 gdy $x < a$ $ \frac{x-a}{b-a}$ gdy $x \in [a,b]$ 1 gdy $x > b$, $m = \frac{a+b}{2}$, $\sigma = \frac{(b-a)^2}{12} $
+    Rozkład jednostajny: $f(x) = \frac{1}{b-a}$ gdy $x \in [a,b]$, 0 gdy $x \notin [a,b]$, $ F(x)=$ 0 gdy $x < a$, $ \frac{x-a}{b-a}$ gdy $x \in [a,b]$, 1 gdy $x > b$, $m = \frac{a+b}{2}$, $\sigma^2 = \frac{(b-a)^2}{12} $
     \nn
-    Rozkład wykładniczy: $f(x) = \lambda e^{-\lambda x}$, $F(x)= 1-e^{-\lambda x}$, $m = \frac{1}{\lambda}$, $\sigma = \frac{1}{\lambda^2}$
+    Rozkład wykładniczy: $f(x) = \lambda e^{-\lambda x}$, $F(x)= 1-e^{-\lambda x}$, $m = \frac{1}{\lambda}$, $\sigma^2 = \frac{1}{\lambda^2}$
     \nn
-    Rozkład normalny:$ \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{{x-m}^2}{2\sigma^2}}$  
+    Rozkład normalny: $f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{{(x-m)}^2}{2\sigma^2}}$  
     \nn
     Własności $\Phi(x)$: $\Phi(x) = 1 - \Phi(-x)$, $\Phi^{-1}(\alpha) = -\Phi^{-1}(1-\alpha)$, $x \in \mathbb{R}, \alpha \in [0,1]$
     \nn
