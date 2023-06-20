@@ -31,7 +31,7 @@
     \section{Prawdopodobieństwo całkowite i warunkowe}
     Prawdopodobieństwo całkowite. Niech będzie dana przestrzeń probabilistyczna $(\Omega, \Sigma, P)$ oraz zdarzenia $A_1, A_2, A_n \in \Sigma$ spełniająca warunki: 
         $P(A_i) > 0$ dla każdego $i = 1,...,n$;
-        $A_i \cap A_j \neq \emptyset$ dla wszystkich $i \neq j$;
+        $A_i \cap A_j = \emptyset$ dla wszystkich $i \neq j$;
         $A_1 \cup ... A_n = \Omega$
         \nn
     Prawdopodobieństwo warunkowe: $P(B|A) = \frac{P(B \cap A)}{P(A)}$
@@ -65,7 +65,9 @@
     \nn
     Jeżeli $X \sim B(n,p)$ i $Y \sim B(m,p)$ są dwiema niezależnymi zmiennymi losowymi o rozkładzie dwumianowym, wtedy ich suma $X+Y$ jest zmienną losową o rozkładzie dwumianowym $B(n+m, p)$
     \nn
-    Rozkład Poissona($m \geq 100 \land p \leq \frac{1}{10}$) : $f(x)= \frac{e^{-\lambda} \lambda^k}{k!}$, $\lambda = np$, $m = \lambda$, $\sigma = \lambda$\
+    Rozkład Poissona : $f(x)= \frac{e^{-\lambda} \lambda^k}{k!}$, $m = \lambda$, $\sigma^2 = \lambda$\
+    \nn
+    Dla $n \geq 100 \land p \leq \frac{1}{10}$ rozkład Poissona z $\lambda = np$ dobrze przybliza rozkład Bernoullego
     \nn
     Dla dwóch zmiennych losowych o rozkładzie Poissona z parametrami $\lambda$ i $\mu$ suma tych zmiennych losowych ma rozkład Possiona o parametrze $\lambda+\mu$
     \nn
