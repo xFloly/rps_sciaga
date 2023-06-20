@@ -79,7 +79,7 @@
     \nn
     Rozkład normalny: $f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{{(x-m)}^2}{2\sigma^2}}$  
     \nn
-    Własności $\Phi(x)$: $\Phi(x) = 1 - \Phi(-x)$, $\Phi^{-1}(\alpha) = -\Phi^{-1}(1-\alpha)$
+    Własności $\Phi(x)$: $\Phi(x) = 1 - \Phi(-x)$, $\Phi^{-1}(\alpha) = -\Phi^{-1}(1-\alpha)$, $x \in \mathbb{R}, \alpha \in [0,1]$
     \nn
     Dla X bedącego zmienną losową o rozkładzie normalnym $N(m,\sigma)$ i $Y = aX + b$, gdzie $a \neq 0$ Y ma rozkład normalny $N(am+b, |a|\sigma)$
     \\
