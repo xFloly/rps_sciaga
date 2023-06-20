@@ -53,8 +53,8 @@
     Wartości własności i wariancji: \nn
     jeżeli $X = const = c$, to $E(X) = c$;\quad 
     $E(aX) = aE(X) \forall a \in \mathbb{R}$;\quad
-    $E(X+Y) + E(X)+E(Y)$;\quad
-    $D^2(X) + E(X^2)-E(X)^2$;\quad
+    $E(X+Y) = E(X)+E(Y)$;\quad
+    $D^2(X) = E(X^2)-E(X)^2$;\quad
     $D^2(aX) = a^2D^2(X) \forall a \in \mathbb{R}$;\quad
     $X = const = c$ to $D^2(X) = 0$; 
     \nn
@@ -69,7 +69,7 @@
     \nn
     Dla dwóch zmiennych losowych o rozkładzie Poissona z parametrami $\lambda$ i $\mu$ suma tych zmiennych losowych ma rozkład Possiona o parametrze $\lambda+\mu$
     \nn
-    Rozkład geometryczny: $p^k (1-p)^{n-k}$, $m = \frac{1}{p}$, $\sigma = \frac{1-p}{p^2}$
+    Rozkład geometryczny: $p(1-p)^{k-1}$, $m = \frac{1}{p}$, $\sigma = \frac{1-p}{p^2}$ 
     \nn
     Rozkład jednostajny: $f(x) = \frac{1}{b-a}$ gdy $x \in [a,b]$, 0 gdy $x \notin [a,b]$, $ F(x)=$ 0 gdy $x < a$ $ \frac{x-a}{b-a}$ gdy $x \in [a,b]$ 1 gdy $x > b$, $m = \frac{a+b}{2}$, $\sigma = \frac{(b-a)^2}{12} $
     \nn
@@ -98,7 +98,8 @@
     
     \section{Estymacja punktowa}
     Niech $X_1, ..., X_n$ będzie próbką prostą ze zmiennej losowej X. Estymatorem parametru $\theta$ rozkładu $P_\theta \in \mathbb{P}$ "odpowiednio bliskiego" rozkładowi $P_X$ nazywamy zmienną losową $\hat{\theta} \circ (X_1, ..., X_n) = T(X_1, ..., X_n)$ gdzie T jest odpowiednio dobraną funkcją, która "rozsądnie" przybliża (estymuje) wartość $\theta$.
-    Przykładami estymatorów są: średnia arytmetyczna z próbki - $\bar{X} = \frac{X_1 + ... + X_n}{n}$ - estymator wartości oczekiwanej $E(X)$. \\ Mediana z próbki - $me X_{(\lceil n/2 \rceil)}$ - estymator mediany. Wariancja z próbki - $S^2 = \frac{1}{n}\sum^n_{n=1}(X_1 - m)^2$ (jeżeli $E(X)=m$ jest znane), \\ lub $S^2 = \frac{1}{n} = \sum^n_{i=1}(X_i-X)^2$ (jeżeli $E(X)=m$ nie jest znane) - estymator wariancji $D^2(X)$ \\
+    Przykładami estymatorów są: średnia arytmetyczna z próbki - $\bar{X} = \frac{X_1 + ... + X_n}{n}$ - estymator wartości oczekiwanej $E(X)$. \\ Mediana z próbki - $me X_{(\lceil n/2 \rceil)}$ - estymator mediany. Wariancja z próbki - $S^2 = \frac{1}{n}\sum^n_{i=1}(X_i - m)^2$ (jeżeli $E(X)=m$ jest znane), \\ lub $S^2 = \frac{1}{n} \sum^n_{i=1}
+(X_i-\bar{X})^2$ (jeżeli $E(X)=m$ nie jest znane) - estymator wariancji $D^2(X)$ \\
     Estymator nieobciążony - $E(\hat{\theta}) = \theta$. \\ Estymator zgodny - $P(\omega \in \Omega : \lim_{n \rightarrow \infty} \hat{\theta}_n(\omega) = \theta) = 1$
      \nn
     Metoda MLE: dla zmiennych losowych $X_1, ..., X_n$ \nn
@@ -110,7 +111,7 @@
     
     Dla wartości oczekiwanej w rozkładzie normalnym ze znanym odchyleniem standardowym (na poziomie ufności $1-\alpha$): \nn
     $(\bar{X} - \frac{\sigma}{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}), \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1 - \frac{\alpha}{2}))$, 
-    $(\infty, \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha))$,
+    $(-\infty, \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha))$,
     $(\bar{X} - \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha), \infty)$
 
     \noindent
@@ -124,7 +125,7 @@
     $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}), 
     \hat{p} + \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}))$ ,
     $(0, \hat{p} + \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha)$ ,
-    $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha), 1)$
+    $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha), 1)$ gdzie $\hat{p} = \bar{X_n} = \frac{\#\{i:X_i=1\}}{n}$
 
     \noindent
     Dla wariancji w rozkładzie normalnym z nieznaną wartością oczekiwaną: 
@@ -171,12 +172,12 @@
     \Sigma_{i=1}^n (y_i-\hat{\alpha}-\hat{\beta} x_i)^2$ a także $E(\hat{\sigma^2})=\frac{n-2}{n}{\sigma}^2$
     
     \section{Analiza wariancji (ANOVA)}
-    Rozkład F(-Snedecora): \\
+    Rozkład F(-Snedecora): 
     Niech $X$ i $Y$ będą niezależnymi zmiennymi losowymi o rozkładach $\chi_p^2$ i $\chi_q^2$.\\
-    Zatem $F=\frac{X/p}{Y/q}$ posiada rozkład F-Snedecora o $(p,q)$ stopniach swobody, jeżeli T jest zmienną losową o rozkładzie $t_q$, to $T^2 \sim F_{1,q}$, $E(F)=\frac{q}{q-2}$ oraz $D^2(F)=\frac{2 q^2 (p+q-2)}{p (q-2)^2 (q-4)}$ dla $q>4$\\
-    Jednoczynnikowa analiza wariancji: \\
+    Zatem $F=\frac{X/p}{Y/q}$ posiada rozkład F-Snedecora o $(p,q)$ stopniach swobody, jeżeli T jest zmienną losową o rozkładzie $t_q$, to $T^2 \sim F_{1,q}$, $E(F)=\frac{q}{q-2}$ oraz $D^2(F)=\frac{2 q^2 (p+q-2)}{p (q-2)^2 (q-4)}$ dla $q>4$.
+    Jednoczynnikowa analiza wariancji:
     Mając $k$ niezależnych próbek prostych: $X_{11},.,X_{1n_1}, X_{21},.,X_{2n_2},...,X_{k1},.,X_{kn_k}$ które pochodzą z $N(m_1,\sigma),..,N(m_k,\sigma)$ testujemy hipotezę: $H_0: m_1=m_2=..=m_k$
-    wobec $H_1:$ nie wszystkie wartości $m_i$ są sobie równe. Do weryfikacji $H_0$ służy $f=\frac{MSTR}{MSE}$, $MSTR=\frac{1}{k-1}\Sigma_{i=1}^k n_i(\bar{x_i}-\bar{x})^2$, $MSE=\frac{1}{n-k}\Sigma_{i=1}^k n_i s_i^2$\\
+    wobec $H_1:$ nie wszystkie wartości $m_i$ są sobie równe. Do weryfikacji $H_0$ służy $f=\frac{MSTR}{MSE}$, $MSTR=\frac{1}{k-1}\Sigma_{i=1}^k n_i(\bar{x_i}-\bar{x})^2$, $MSE=\frac{1}{n-k}\Sigma_{i=1}^k n_i s_i^2$
     $n=\Sigma_{i=1}^k n_i$, $\bar{x_i}$ jest średnią arytmetyczną z i-tej próbki, $s_i^2$ jest wariancją z i-tej próbki, $\bar{x}$ jest średnią arytmetyczną ze wszystkich obserwacji, która daje $F=F(X_{11},..,X_{kn_k})$ o rozkładzie F-Snedecora o $(k-1,n-k)$ stopniach swobody.\\
     \newpage
 
