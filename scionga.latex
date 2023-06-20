@@ -53,8 +53,8 @@
     Wartości własności i wariancji: \nn
     jeżeli $X = const = c$, to $E(X) = c$;\quad 
     $E(aX) = aE(X) \forall a \in \mathbb{R}$;\quad
-    $E(X+Y) + E(X)+E(Y)$;\quad
-    $D^2(X) + E(X^2)-E(X)^2$;\quad
+    $E(X+Y) = E(X)+E(Y)$;\quad
+    $D^2(X) = E(X^2)-E(X)^2$;\quad
     $D^2(aX) = a^2D^2(X) \forall a \in \mathbb{R}$;\quad
     $X = const = c$ to $D^2(X) = 0$; 
     \nn
@@ -69,7 +69,7 @@
     \nn
     Dla dwóch zmiennych losowych o rozkładzie Poissona z parametrami $\lambda$ i $\mu$ suma tych zmiennych losowych ma rozkład Possiona o parametrze $\lambda+\mu$
     \nn
-    Rozkład geometryczny: $p^k (1-p)^{n-k}$, $m = \frac{1}{p}$, $\sigma = \frac{1-p}{p^2}$
+    Rozkład geometryczny: $p(1-p)^{k-1}$, $m = \frac{1}{p}$, $\sigma = \frac{1-p}{p^2}$ 
     \nn
     Rozkład jednostajny: $f(x) = \frac{1}{b-a}$ gdy $x \in [a,b]$, 0 gdy $x \notin [a,b]$, $ F(x)=$ 0 gdy $x < a$ $ \frac{x-a}{b-a}$ gdy $x \in [a,b]$ 1 gdy $x > b$, $m = \frac{a+b}{2}$, $\sigma = \frac{(b-a)^2}{12} $
     \nn
@@ -110,7 +110,7 @@
     
     Dla wartości oczekiwanej w rozkładzie normalnym ze znanym odchyleniem standardowym (na poziomie ufności $1-\alpha$): \nn
     $(\bar{X} - \frac{\sigma}{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}), \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1 - \frac{\alpha}{2}))$, 
-    $(\infty, \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha))$,
+    $(-\infty, \bar{X} + \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha))$,
     $(\bar{X} - \frac{\sigma}{\sqrt{n}}\Phi^{-1}(1-\alpha), \infty)$
 
     \noindent
@@ -124,7 +124,7 @@
     $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}), 
     \hat{p} + \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\frac{\alpha}{2}))$ ,
     $(0, \hat{p} + \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha)$ ,
-    $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha), 1)$
+    $(\hat{p} - \frac{ \sqrt{ \hat{p} (1-\hat{p}) } }{\sqrt{n}} \Phi^{-1}(1-\alpha), 1)$ gdzie $\hat{p} = \bar{X_n} = \frac{\#\{i:X_i=1\}}{n}$
 
     \noindent
     Dla wariancji w rozkładzie normalnym z nieznaną wartością oczekiwaną: 
